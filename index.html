@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var systemDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          var theme = stored || (systemDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+
+          // Set background immediately so there’s no white flash
+          if (theme === "dark") {
+            document.documentElement.style.background = "black";
+            document.documentElement.style.color = "white";
+          } else {
+            document.documentElement.style.background = "white";
+            document.documentElement.style.color = "black";
+          }
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <title>Vite + React + TS</title>
+    <script type="module" crossorigin src="/assets/index-CF-Ol9K0.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C9VrMhgW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+  </body>
+</html>
